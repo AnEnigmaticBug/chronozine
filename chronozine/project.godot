@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "HBoxContainer",
+"class": "HealthBar",
+"language": "GDScript",
+"path": "res://src/player/HealthBar.gd"
+}, {
 "base": "Area2D",
 "class": "Laser",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://src/walls/WallReifier.gd"
 } ]
 _global_script_class_icons={
+"HealthBar": "",
 "Laser": "",
 "Level": "",
 "Player": "",

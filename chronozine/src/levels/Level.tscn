@@ -70,5 +70,6 @@ points = PoolVector2Array( 200, -200, -200, -200, -200, 200, 200, 200 )
 
 [node name="Lasers" type="Node2D" parent="."]
 
+[connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="started_slo_mo" from="Player" to="." method="_on_Player_started_slo_mo"]
 [connection signal="stopped_slo_mo" from="Player" to="." method="_on_Player_stopped_slo_mo"]

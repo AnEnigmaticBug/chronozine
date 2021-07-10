@@ -21,6 +21,10 @@ func _on_Player_stopped_slo_mo() -> void:
 	Engine.time_scale = 1.0
 
 
+func _on_Player_died() -> void:
+	get_tree().reload_current_scene()
+
+
 func _on_laser_fired(pos: Vector2, dir: Vector2) -> void:
 	var laser: Laser = LASER_SCN.instance()
 	lasers.add_child(laser)

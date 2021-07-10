@@ -4,6 +4,7 @@ extends KinematicBody2D
 
 signal started_slo_mo
 signal stopped_slo_mo
+signal died
 
 
 const MAX_SPEED := 800
@@ -11,14 +12,27 @@ const ACCELERATION := 0.016
 const DECELERATION := 0.008
 const HANDLING := 0.2
 
+export var max_health := 3
+
 var velocity := Vector2()
 
+onready var health := max_health
 onready var exhaust: Node2D = $Exhaust
 onready var wave: Particles2D = $Wave
+onready var health_bar: HealthBar = $Hud/HealthBar
 
 
 func hurt(damage: int) -> void:
-	print("HURT")
+	health = max(0, health - damage)
+
+	health_bar.hurt(health)
+
+	if health == 0:
+		emit_signal("died")
+
+
+func _ready() -> void:
+	health_bar.init(max_health)
 
 
 func _unhandled_input(event: InputEvent) -> void:
