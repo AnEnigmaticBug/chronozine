@@ -9,6 +9,8 @@ onready var lasers: Node2D = $Lasers
 
 
 func _ready() -> void:
+	MusicManager.play_game_music()
+
 	for gun in get_tree().get_nodes_in_group("gun"):
 		gun.connect("laser_fired", self, "_on_laser_fired")
 

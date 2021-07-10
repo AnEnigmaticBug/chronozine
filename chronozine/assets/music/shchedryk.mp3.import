@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shchedryk.mp3-e9016142e48e129f465417d30c7ec650.mp3str"
+
+[deps]
+
+source_file="res://assets/music/shchedryk.mp3"
+dest_files=[ "res://.import/shchedryk.mp3-e9016142e48e129f465417d30c7ec650.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

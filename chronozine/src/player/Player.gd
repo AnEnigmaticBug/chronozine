@@ -19,11 +19,18 @@ var velocity := Vector2()
 onready var health := max_health
 onready var exhaust: Node2D = $Exhaust
 onready var wave: Particles2D = $Wave
+onready var engine_sfx: AudioStreamPlayer = $Sfx/Engine
+onready var hurt_sfxs: Node2D = $Sfx/Hurt
 onready var health_bar: HealthBar = $Hud/HealthBar
 
 
 func hurt(damage: int) -> void:
 	health = max(0, health - damage)
+
+	for hurt_sfx in hurt_sfxs.get_children():
+		if not hurt_sfx.playing:
+			hurt_sfx.play()
+			break
 
 	health_bar.hurt(health)
 
@@ -52,6 +59,7 @@ func _physics_process(_dt: float) -> void:
 	if Input.is_action_pressed("accelerate"):
 		var target_velocity := target_dir * MAX_SPEED
 		velocity = lerp(velocity, target_velocity, ACCELERATION)
+		engine_sfx.play()
 		exhaust.show()
 	else:
 		var target_velocity := Vector2()

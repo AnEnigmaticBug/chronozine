@@ -48,6 +48,10 @@ config/name="Chronozine"
 config/description="Weave around lasers in slo-mo as you race to clear levels in minimum time"
 config/icon="res://icon.png"
 
+[autoload]
+
+MusicManager="*res://src/misc/MusicManager.tscn"
+
 [display]
 
 window/size/width=960
