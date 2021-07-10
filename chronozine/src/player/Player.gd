@@ -12,6 +12,10 @@ var velocity := Vector2()
 onready var exhaust: Node2D = $Exhaust
 
 
+func hurt(damage: int) -> void:
+	print("HURT")
+
+
 func _physics_process(_dt: float) -> void:
 	var target_dir := _direction_input()
 	rotation = lerp_angle(rotation, target_dir.angle(), HANDLING)

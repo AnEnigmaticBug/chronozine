@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Laser",
+"language": "GDScript",
+"path": "res://src/turrets/Laser.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://src/levels/Level.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -20,6 +30,8 @@ _global_script_classes=[ {
 "path": "res://src/walls/WallReifier.gd"
 } ]
 _global_script_class_icons={
+"Laser": "",
+"Level": "",
 "Player": "",
 "WallReifier": ""
 }

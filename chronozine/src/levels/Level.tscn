@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/images/background/background0.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/background/background1.png" type="Texture" id=2]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/walls/WallReifier.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/walls/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/levels/Level.gd" type="Script" id=6]
+[ext_resource path="res://src/turrets/Turret.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/turrets/Gun.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/turrets/combinators/Rotator.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/turrets/combinators/ConstFire.tscn" type="PackedScene" id=11]
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
@@ -41,7 +47,25 @@ region_rect = Rect2( 0, 0, 1920, 1080 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
+[node name="Turrets" type="Node2D" parent="."]
+
+[node name="Turret0" parent="Turrets" instance=ExtResource( 7 )]
+position = Vector2( 600, 0 )
+
+[node name="Rotator" parent="Turrets/Turret0" instance=ExtResource( 10 )]
+degrees_per_second = 90
+
+[node name="ConstFire" parent="Turrets/Turret0/Rotator" instance=ExtResource( 11 )]
+lasers_per_second = 6
+
+[node name="Gun0" parent="Turrets/Turret0/Rotator/ConstFire" instance=ExtResource( 9 )]
+
+[node name="Gun1" parent="Turrets/Turret0/Rotator/ConstFire" instance=ExtResource( 9 )]
+rotation = -3.14159
+
 [node name="Walls" parent="." instance=ExtResource( 4 )]
 
 [node name="Wall" parent="Walls" instance=ExtResource( 5 )]
 points = PoolVector2Array( 200, -200, -200, -200, -200, 200, 200, 200 )
+
+[node name="Lasers" type="Node2D" parent="."]
