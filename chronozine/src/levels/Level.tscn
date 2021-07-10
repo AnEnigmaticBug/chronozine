@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/images/background/background0.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/background/background1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/walls/Wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=6]
 [ext_resource path="res://src/turrets/Turret.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/goal/Goal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/turrets/Gun.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/turrets/combinators/Rotator.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/turrets/combinators/ConstFire.tscn" type="PackedScene" id=11]
@@ -45,6 +46,9 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 1080 )
 
+[node name="Goal" parent="." instance=ExtResource( 8 )]
+position = Vector2( -400, 0 )
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
 [node name="Turrets" type="Node2D" parent="."]
@@ -70,6 +74,7 @@ points = PoolVector2Array( 200, -200, -200, -200, -200, 200, 200, 200 )
 
 [node name="Lasers" type="Node2D" parent="."]
 
+[connection signal="body_entered" from="Goal" to="." method="_on_Goal_body_entered"]
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="started_slo_mo" from="Player" to="." method="_on_Player_started_slo_mo"]
 [connection signal="stopped_slo_mo" from="Player" to="." method="_on_Player_stopped_slo_mo"]

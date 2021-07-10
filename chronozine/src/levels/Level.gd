@@ -13,6 +13,11 @@ func _ready() -> void:
 		gun.connect("laser_fired", self, "_on_laser_fired")
 
 
+func _on_Goal_body_entered(body: Node) -> void:
+	if body is Player:
+		get_tree().reload_current_scene()
+
+
 func _on_Player_started_slo_mo() -> void:
 	Engine.time_scale = SLO_MO
 
