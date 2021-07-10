@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/player/Player.gd"
+}, {
+"base": "StaticBody2D",
+"class": "WallReifier",
+"language": "GDScript",
+"path": "res://src/walls/WallReifier.gd"
 } ]
 _global_script_class_icons={
-"Player": ""
+"Player": "",
+"WallReifier": ""
 }
 
 [application]
