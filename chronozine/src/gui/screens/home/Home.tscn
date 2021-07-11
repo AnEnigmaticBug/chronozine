@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/stacked_pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/gui/themes/MainTheme.tres" type="Theme" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/gui/controls/SceneChanger.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/levels/LaserSpiral.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/levels/SpaceWalk.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/levels/Grandmaster.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -107,6 +108,15 @@ margin_bottom = 114.0
 rect_min_size = Vector2( 200, 0 )
 text = "Space Walk"
 destination = ExtResource( 8 )
+
+[node name="Level5" parent="VBoxContainer/Levels" instance=ExtResource( 6 )]
+margin_left = 215.0
+margin_top = 86.0
+margin_right = 415.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 200, 0 )
+text = "Grandmaster"
+destination = ExtResource( 9 )
 
 [node name="Spacer" type="Control" parent="VBoxContainer"]
 margin_top = 251.0
