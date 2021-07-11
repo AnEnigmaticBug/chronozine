@@ -5,7 +5,9 @@ extends Node2D
 const LASER_SCN := preload("res://src/turrets/Laser.tscn")
 const SLO_MO := 0.125
 
+onready var total_time := 0.0
 onready var lasers: Node2D = $Lasers
+onready var time_label: Label = $Gui/Time
 onready var scrim: Scrim = $Gui/Scrim
 onready var pause_menu: PauseMenu = $Gui/Menus/Pause
 onready var retry_menu: RetryMenu = $Gui/Menus/Retry
@@ -23,6 +25,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().paused = true
 		yield(scrim.animate_and_show(Color(0x0c0c0ca0)), "completed")
 		pause_menu.present()
+
+
+func _process(dt: float) -> void:
+	total_time += dt / Engine.time_scale
+	time_label.text = "%.2f sec" % total_time
 
 
 func _on_Goal_body_entered(body: Node) -> void:
