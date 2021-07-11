@@ -1,0 +1,224 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/gui/themes/MainTheme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/stacked_pixel.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/gui/themes/TableCell.tres" type="Theme" id=3]
+[ext_resource path="res://src/gui/screens/controls/Controls.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="Controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.113725, 0.113725, 0.0941176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 920.0
+margin_bottom = 500.0
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Table" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 880.0
+margin_bottom = 109.0
+columns = 4
+
+[node name="Blank" type="Control" parent="MarginContainer/VBoxContainer/Table"]
+margin_right = 80.0
+margin_bottom = 13.0
+
+[node name="MouseHeader" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 84.0
+margin_right = 346.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Mouse"
+align = 1
+
+[node name="KeyboardHeader" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 350.0
+margin_right = 612.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Keyboard"
+align = 1
+
+[node name="ControllerHeader" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 616.0
+margin_right = 878.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Controller"
+align = 1
+
+[node name="Turn" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_top = 24.0
+margin_right = 80.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+text = "Steer"
+valign = 1
+
+[node name="TurnMouse" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 84.0
+margin_top = 17.0
+margin_right = 346.0
+margin_bottom = 45.0
+theme = ExtResource( 3 )
+text = "Move around"
+align = 1
+
+[node name="TurnKeyboard" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 350.0
+margin_top = 17.0
+margin_right = 612.0
+margin_bottom = 45.0
+theme = ExtResource( 3 )
+text = "Cursor keys"
+align = 1
+
+[node name="TurnController" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 616.0
+margin_top = 17.0
+margin_right = 878.0
+margin_bottom = 45.0
+theme = ExtResource( 3 )
+text = "L-stick"
+align = 1
+
+[node name="Accelerate" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_top = 56.0
+margin_right = 80.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 1 )
+text = "Accelerate"
+valign = 1
+
+[node name="AccelerateMouse" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 84.0
+margin_top = 49.0
+margin_right = 346.0
+margin_bottom = 77.0
+theme = ExtResource( 3 )
+text = "LMB"
+align = 1
+
+[node name="AccelerateKeyboard" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 350.0
+margin_top = 49.0
+margin_right = 612.0
+margin_bottom = 77.0
+theme = ExtResource( 3 )
+text = "Space"
+align = 1
+
+[node name="AccelerateController" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 616.0
+margin_top = 49.0
+margin_right = 878.0
+margin_bottom = 77.0
+theme = ExtResource( 3 )
+text = "R1"
+align = 1
+
+[node name="SloMo" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_top = 88.0
+margin_right = 80.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 1 )
+text = "Slo-mo"
+valign = 1
+
+[node name="SloMoMouse" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 84.0
+margin_top = 81.0
+margin_right = 346.0
+margin_bottom = 109.0
+theme = ExtResource( 3 )
+text = "RMB"
+align = 1
+
+[node name="SloMoKeyboard" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 350.0
+margin_top = 81.0
+margin_right = 612.0
+margin_bottom = 109.0
+theme = ExtResource( 3 )
+text = "Control"
+align = 1
+
+[node name="SloMoController" type="Label" parent="MarginContainer/VBoxContainer/Table"]
+margin_left = 616.0
+margin_top = 81.0
+margin_right = 878.0
+margin_bottom = 109.0
+theme = ExtResource( 3 )
+text = "L1"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 141.0
+margin_right = 880.0
+margin_bottom = 208.0
+custom_constants/margin_top = 24
+
+[node name="Note" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
+margin_top = 24.0
+margin_right = 880.0
+margin_bottom = 67.0
+text = "Note: You can't use both mouse and keyboard/controller at the same time for steering. If you do not have a controller, it is recommended to use the mouse."
+align = 3
+autowrap = true
+
+[node name="UseMouse" type="CheckButton" parent="MarginContainer/VBoxContainer"]
+margin_top = 240.0
+margin_right = 880.0
+margin_bottom = 264.0
+text = "Use Mouse for steering"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 296.0
+margin_right = 880.0
+margin_bottom = 400.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 432.0
+margin_right = 880.0
+margin_bottom = 460.0
+text = "Continue"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/UseMouse" to="." method="_on_UseMouse_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]

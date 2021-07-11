@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=9 format=2]
+[gd_resource type="Theme" load_steps=17 format=2]
 
 [ext_resource path="res://assets/fonts/stacked_pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/images/checkbox.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -26,6 +27,24 @@ corner_detail = 1
 bg_color = Color( 0.168627, 0.168627, 0.141176, 1 )
 corner_detail = 1
 
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.113725, 0.113725, 0.0941176, 1 )
 corner_detail = 1
@@ -44,5 +63,12 @@ Button/styles/focus = SubResource( 1 )
 Button/styles/hover = SubResource( 2 )
 Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 4 )
+CheckButton/icons/off = SubResource( 8 )
+CheckButton/icons/on = SubResource( 9 )
+CheckButton/styles/focus = SubResource( 10 )
+CheckButton/styles/hover = SubResource( 11 )
+CheckButton/styles/hover_pressed = SubResource( 12 )
+CheckButton/styles/normal = SubResource( 13 )
+CheckButton/styles/pressed = SubResource( 14 )
 ItemList/styles/bg_focus = SubResource( 5 )
 ItemList/styles/selected_focus = SubResource( 6 )
