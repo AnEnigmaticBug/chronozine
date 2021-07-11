@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/walls/Wall.tscn" type="PackedScene" id=2]
@@ -9,8 +9,10 @@
 [ext_resource path="res://src/turrets/combinators/Oscillator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/asteroids/Asteroid.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/gui/themes/InGameMessage.tres" type="Theme" id=9]
+[ext_resource path="res://src/levels/BrownianMotion.tscn" type="PackedScene" id=10]
 
 [node name="WarmUp" instance=ExtResource( 1 )]
+next_scene = ExtResource( 10 )
 
 [node name="Goal" parent="." index="1"]
 position = Vector2( 2300, 2900 )
