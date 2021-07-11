@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/stacked_pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/gui/themes/MainTheme.tres" type="Theme" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/levels/LaserSpiral.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/levels/SpaceWalk.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/levels/Grandmaster.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/gui/screens/credits/Credits.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -141,6 +142,7 @@ margin_bottom = 385.0
 rect_min_size = Vector2( 415, 0 )
 size_flags_horizontal = 4
 text = "Credits"
+destination = ExtResource( 10 )
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 margin_left = 272.0

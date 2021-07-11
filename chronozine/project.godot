@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "VBoxContainer",
+"class": "CreditCategory",
+"language": "GDScript",
+"path": "res://src/gui/screens/credits/CreditCategory.gd"
+}, {
+"base": "VBoxContainer",
 "class": "GradingStar",
 "language": "GDScript",
 "path": "res://src/gui/menus/score/GradingStar.gd"
@@ -60,6 +65,7 @@ _global_script_classes=[ {
 "path": "res://src/walls/WallReifier.gd"
 } ]
 _global_script_class_icons={
+"CreditCategory": "",
 "GradingStar": "",
 "HealthBar": "",
 "Laser": "",
@@ -90,6 +96,7 @@ window/size/width=960
 window/size/height=540
 window/size/fullscreen=true
 window/dpi/allow_hidpi=true
+mouse_cursor/custom_image="res://assets/images/cursor.png"
 window/stretch/mode="2d"
 
 [importer_defaults]
