@@ -14,4 +14,4 @@ func _on_Options_item_activated(index: int) -> void:
 
 	match index:
 		0: get_tree().reload_current_scene()
-		1: get_tree().quit()
+		1: get_tree().change_scene_to(Globals.HOME_SCN)

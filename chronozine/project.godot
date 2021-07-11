@@ -76,11 +76,13 @@ _global_script_class_icons={
 
 config/name="Chronozine"
 config/description="Weave around lasers in slo-mo as you race to clear levels in minimum time"
+run/main_scene="res://src/gui/screens/home/Home.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 MusicManager="*res://src/misc/MusicManager.tscn"
+Globals="*res://src/misc/Globals.gd"
 
 [display]
 

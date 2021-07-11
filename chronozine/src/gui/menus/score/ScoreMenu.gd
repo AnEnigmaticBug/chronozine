@@ -48,4 +48,4 @@ func _on_Options_item_activated(index: int) -> void:
 	match index:
 		0: emit_signal("advanced_level")
 		1: get_tree().reload_current_scene()
-		2: get_tree().quit()
+		2: get_tree().change_scene_to(Globals.HOME_SCN)
