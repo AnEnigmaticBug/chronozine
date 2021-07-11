@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/walls/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/turrets/Turret.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/turrets/combinators/Rotator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/turrets/combinators/ConstFire.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/turrets/Gun.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/asteroids/Asteroid.tscn" type="PackedScene" id=7]
+
+[node name="LaserSpiral" instance=ExtResource( 1 )]
+
+[node name="Goal" parent="." index="1"]
+position = Vector2( 1200, -2100 )
+
+[node name="Wall0" parent="Walls" index="0" instance=ExtResource( 2 )]
+points = PoolVector2Array( 200, -300, 0, -300, 0, 500, 800, 500, 800, -300, 600, -300 )
+
+[node name="Wall1" parent="Walls" index="1" instance=ExtResource( 2 )]
+points = PoolVector2Array( 300, -300, 200, -300, 200, -500, 300, -500 )
+
+[node name="Wall2" parent="Walls" index="2" instance=ExtResource( 2 )]
+points = PoolVector2Array( 500, -300, 600, -300, 600, -500, 500, -500 )
+
+[node name="Wall3" parent="Walls" index="3" instance=ExtResource( 2 )]
+points = PoolVector2Array( 300, -500, 300, -1300 )
+
+[node name="Wall4" parent="Walls" index="4" instance=ExtResource( 2 )]
+points = PoolVector2Array( 500, -500, 500, -1300 )
+
+[node name="Wall5" parent="Walls" index="5" instance=ExtResource( 2 )]
+points = PoolVector2Array( 300, -1300, -400, -1300, -400, -2900, 1200, -2900, 1200, -2200 )
+
+[node name="Wall6" parent="Walls" index="6" instance=ExtResource( 2 )]
+points = PoolVector2Array( 500, -1300, 1200, -1300, 1200, -2000 )
+
+[node name="Asteroid0" parent="Asteroids" index="0" instance=ExtResource( 7 )]
+position = Vector2( 360, -1500 )
+
+[node name="Asteroid1" parent="Asteroids" index="1" instance=ExtResource( 7 )]
+position = Vector2( 440, -1500 )
+
+[node name="Asteroid2" parent="Asteroids" index="2" instance=ExtResource( 7 )]
+position = Vector2( -200, -2060 )
+
+[node name="Asteroid3" parent="Asteroids" index="3" instance=ExtResource( 7 )]
+position = Vector2( -200, -2140 )
+
+[node name="Asteroid4" parent="Asteroids" index="4" instance=ExtResource( 7 )]
+position = Vector2( 360, -2700 )
+
+[node name="Asteroid5" parent="Asteroids" index="5" instance=ExtResource( 7 )]
+position = Vector2( 440, -2700 )
+
+[node name="Asteroid6" parent="Asteroids" index="6" instance=ExtResource( 7 )]
+position = Vector2( 1000, -2140 )
+
+[node name="Asteroid7" parent="Asteroids" index="7" instance=ExtResource( 7 )]
+position = Vector2( 1000, -2060 )
+
+[node name="Player" parent="." index="4"]
+position = Vector2( 100, 0 )
+
+[node name="Turret0" parent="Turrets" index="0" instance=ExtResource( 3 )]
+position = Vector2( 400, 100 )
+
+[node name="Rotator" parent="Turrets/Turret0" index="2" instance=ExtResource( 4 )]
+degrees_per_second = -45
+
+[node name="ConstFire" parent="Turrets/Turret0/Rotator" index="0" instance=ExtResource( 5 )]
+lasers_per_second = 24
+
+[node name="Gun0" parent="Turrets/Turret0/Rotator/ConstFire" index="1" instance=ExtResource( 6 )]
+rotation = 3.14159
+
+[node name="Gun1" parent="Turrets/Turret0/Rotator/ConstFire" index="2" instance=ExtResource( 6 )]
+rotation = 3.92699
+
+[node name="Turret1" parent="Turrets" index="1" instance=ExtResource( 3 )]
+position = Vector2( 400, -2100 )
+
+[node name="Rotator" parent="Turrets/Turret1" index="2" instance=ExtResource( 4 )]
+degrees_per_second = 75
+
+[node name="ConstFire" parent="Turrets/Turret1/Rotator" index="0" instance=ExtResource( 5 )]
+lasers_per_second = 24
+
+[node name="Gun0" parent="Turrets/Turret1/Rotator/ConstFire" index="1" instance=ExtResource( 6 )]
+
+[node name="Gun1" parent="Turrets/Turret1/Rotator/ConstFire" index="2" instance=ExtResource( 6 )]
+rotation = 2.0944
+
+[node name="Gun2" parent="Turrets/Turret1/Rotator/ConstFire" index="3" instance=ExtResource( 6 )]
+rotation = 4.18879
+
+[node name="Score" parent="Gui/Menus" index="2"]
+requirement_1_star = 30
+requirement_2_star = 20
+requirement_3_star = 10

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/stacked_pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/gui/themes/MainTheme.tres" type="Theme" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/levels/WarmUp.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/gui/screens/home/Home.gd" type="Script" id=5]
 [ext_resource path="res://src/gui/controls/SceneChanger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/levels/LaserSpiral.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -88,6 +89,15 @@ margin_bottom = 71.0
 rect_min_size = Vector2( 200, 0 )
 text = "Brownian Motion"
 destination = ExtResource( 3 )
+
+[node name="Level3" parent="VBoxContainer/Levels" instance=ExtResource( 6 )]
+margin_left = 215.0
+margin_top = 43.0
+margin_right = 415.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 200, 0 )
+text = "Laser Spiral"
+destination = ExtResource( 7 )
 
 [node name="Spacer" type="Control" parent="VBoxContainer"]
 margin_top = 208.0
