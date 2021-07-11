@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/images/background/background0.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/background/background1.png" type="Texture" id=2]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/walls/WallReifier.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/gui/controls/Scrim.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=6]
+[ext_resource path="res://src/gui/menus/pause/PauseMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/goal/Goal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/gui/themes/MainTheme.tres" type="Theme" id=9]
+[ext_resource path="res://src/gui/menus/retry/RetryMenu.tscn" type="PackedScene" id=10]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 6 )
@@ -54,7 +58,44 @@ position = Vector2( -400, 0 )
 
 [node name="Lasers" type="Node2D" parent="."]
 
+[node name="Gui" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="Scrim" parent="Gui" instance=ExtResource( 5 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Menus" type="Control" parent="Gui"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" parent="Gui/Menus" instance=ExtResource( 7 )]
+visible = false
+margin_left = -135.0
+margin_top = -58.5
+margin_right = 135.0
+margin_bottom = 58.5
+
+[node name="Retry" parent="Gui/Menus" instance=ExtResource( 10 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -253.0
+margin_top = -40.5
+margin_right = 253.0
+margin_bottom = 40.5
+
 [connection signal="body_entered" from="Goal" to="." method="_on_Goal_body_entered"]
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="started_slo_mo" from="Player" to="." method="_on_Player_started_slo_mo"]
 [connection signal="stopped_slo_mo" from="Player" to="." method="_on_Player_stopped_slo_mo"]
+[connection signal="resumed" from="Gui/Menus/Pause" to="." method="_on_PauseMenu_resumed"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/gui/menus/retry/RetryMenu.gd" type="Script" id=1]
+
+[node name="RetryMenu" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 16
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="."]
+margin_right = 290.0
+margin_bottom = 14.0
+text = "Your ship was destroyed. Rewind to the start?"
+align = 1
+
+[node name="Options" type="ItemList" parent="."]
+margin_top = 30.0
+margin_right = 290.0
+margin_bottom = 75.0
+items = [ "> Yes. My people need me.", null, false, "> No. I will do that later.", null, false ]
+auto_height = true
+
+[connection signal="item_activated" from="Options" to="." method="_on_Options_item_activated"]
