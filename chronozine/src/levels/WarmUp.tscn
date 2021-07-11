@@ -249,3 +249,8 @@ lasers_per_second = 15
 
 [node name="Gun" parent="Turrets/Turret3/Oscillator/ConstFire" index="1" instance=ExtResource( 6 )]
 rotation = -1.5708
+
+[node name="Score" parent="Gui/Menus" index="2"]
+requirement_1_star = 50
+requirement_2_star = 20
+requirement_3_star = 15

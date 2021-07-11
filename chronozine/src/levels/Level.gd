@@ -5,12 +5,15 @@ extends Node2D
 const LASER_SCN := preload("res://src/turrets/Laser.tscn")
 const SLO_MO := 0.125
 
+export var next_scene: PackedScene
+
 onready var total_time := 0.0
 onready var lasers: Node2D = $Lasers
 onready var time_label: Label = $Gui/Time
 onready var scrim: Scrim = $Gui/Scrim
 onready var pause_menu: PauseMenu = $Gui/Menus/Pause
 onready var retry_menu: RetryMenu = $Gui/Menus/Retry
+onready var score_menu: ScoreMenu = $Gui/Menus/Score
 
 
 func _ready() -> void:
@@ -34,7 +37,9 @@ func _process(dt: float) -> void:
 
 func _on_Goal_body_entered(body: Node) -> void:
 	if body is Player:
-		get_tree().reload_current_scene()
+		get_tree().paused = true
+		yield(scrim.animate_and_show(Color(0x6c6f1060)), "completed")
+		score_menu.present(total_time)
 
 
 func _on_Player_started_slo_mo() -> void:
@@ -63,3 +68,7 @@ func _on_laser_fired(pos: Vector2, dir: Vector2) -> void:
 func _on_PauseMenu_resumed() -> void:
 	scrim.hide()
 	pause_menu.hide()
+
+
+func _on_Score_advanced_level() -> void:
+	get_tree().change_scene_to(next_scene)

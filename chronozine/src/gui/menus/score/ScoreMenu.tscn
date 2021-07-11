@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/gui/menus/score/ScoreMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/gui/menus/score/GradingStar.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.113725, 0.113725, 0.0941176, 1 )
+corner_detail = 1
+
+[node name="ScoreMenu" type="VBoxContainer" groups=[
+"menu",
+]]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 20
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreCard" type="PanelContainer" parent="."]
+margin_right = 406.0
+margin_bottom = 183.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreCard"]
+margin_right = 406.0
+margin_bottom = 183.0
+custom_constants/separation = 24
+
+[node name="Stars" type="HBoxContainer" parent="ScoreCard/VBoxContainer"]
+margin_right = 406.0
+margin_bottom = 145.0
+
+[node name="Star0" parent="ScoreCard/VBoxContainer/Stars" instance=ExtResource( 2 )]
+
+[node name="Star1" parent="ScoreCard/VBoxContainer/Stars" instance=ExtResource( 2 )]
+margin_left = 132.0
+margin_right = 260.0
+
+[node name="Star2" parent="ScoreCard/VBoxContainer/Stars" instance=ExtResource( 2 )]
+margin_left = 264.0
+margin_right = 392.0
+
+[node name="Remark" type="Label" parent="ScoreCard/VBoxContainer"]
+margin_top = 169.0
+margin_right = 406.0
+margin_bottom = 183.0
+text = "You took 112.13 sec"
+align = 1
+
+[node name="Options" type="ItemList" parent="."]
+margin_top = 203.0
+margin_right = 406.0
+margin_bottom = 266.0
+items = [ "> Proceed to next level", null, false, "> Replay to better time", null, false, "> Go to main menu", null, false ]
+auto_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="item_activated" from="Options" to="." method="_on_Options_item_activated"]

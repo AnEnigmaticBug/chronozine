@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/images/background/background0.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/background/background1.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/gui/themes/MainTheme.tres" type="Theme" id=9]
 [ext_resource path="res://src/gui/menus/retry/RetryMenu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/gui/themes/InGameMessage.tres" type="Theme" id=11]
+[ext_resource path="res://src/gui/menus/score/ScoreMenu.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 6 )
@@ -109,8 +110,20 @@ margin_top = -40.5
 margin_right = 253.0
 margin_bottom = 40.5
 
+[node name="Score" parent="Gui/Menus" instance=ExtResource( 12 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.0
+margin_top = -152.0
+margin_right = 203.0
+margin_bottom = 152.0
+
 [connection signal="body_entered" from="Goal" to="." method="_on_Goal_body_entered"]
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="started_slo_mo" from="Player" to="." method="_on_Player_started_slo_mo"]
 [connection signal="stopped_slo_mo" from="Player" to="." method="_on_Player_stopped_slo_mo"]
 [connection signal="resumed" from="Gui/Menus/Pause" to="." method="_on_PauseMenu_resumed"]
+[connection signal="advanced_level" from="Gui/Menus/Score" to="." method="_on_Score_advanced_level"]

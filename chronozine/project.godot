@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "VBoxContainer",
+"class": "GradingStar",
+"language": "GDScript",
+"path": "res://src/gui/menus/score/GradingStar.gd"
+}, {
 "base": "HBoxContainer",
 "class": "HealthBar",
 "language": "GDScript",
@@ -39,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/gui/menus/retry/RetryMenu.gd"
 }, {
+"base": "VBoxContainer",
+"class": "ScoreMenu",
+"language": "GDScript",
+"path": "res://src/gui/menus/score/ScoreMenu.gd"
+}, {
 "base": "ColorRect",
 "class": "Scrim",
 "language": "GDScript",
@@ -50,12 +60,14 @@ _global_script_classes=[ {
 "path": "res://src/walls/WallReifier.gd"
 } ]
 _global_script_class_icons={
+"GradingStar": "",
 "HealthBar": "",
 "Laser": "",
 "Level": "",
 "PauseMenu": "",
 "Player": "",
 "RetryMenu": "",
+"ScoreMenu": "",
 "Scrim": "",
 "WallReifier": ""
 }
