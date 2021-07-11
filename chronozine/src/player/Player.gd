@@ -70,6 +70,9 @@ func _physics_process(_dt: float) -> void:
 
 
 func _direction_input() -> Vector2:
+	if Globals.is_using_mouse:
+		return (get_global_mouse_position() - global_position).normalized()
+
 	var strength := Vector2(
 		Input.get_action_strength("point_rt") - Input.get_action_strength("point_lt"),
 		Input.get_action_strength("point_dn") - Input.get_action_strength("point_up")
