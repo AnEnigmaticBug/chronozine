@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/gui/screens/controls/Controls.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/gui/controls/SceneChanger.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/gui/themes/MainTheme.tres" type="Theme" id=3]
+[ext_resource path="res://src/levels/Intro.gd" type="Script" id=4]
+
+[node name="Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.113725, 0.113725, 0.0941176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -413.0
+margin_top = -240.0
+margin_right = 413.0
+margin_bottom = 240.0
+custom_constants/separation = 64
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="VBoxContainer"]
+margin_right = 826.0
+margin_bottom = 388.0
+text = "The year is 2249. Recognizing the heightened threat of potential alien invasions due to our increasing bio-signatures, goverments worldwide have agreed to create a global space-force.
+
+Aurora-9 is the space-force's most advanced reconnaissance vehicle. It can withstand high stresses and shield its pilot from the high G-forces, allowing it to perform near impossible maneuvers.
+
+However, no pilot could use an Aurora-9 at its full potential since humans simply couldn't handle a vehicle this agile.
+
+To deal with this issue, space-force is testing Chronozine: a newly created drug that increases neural activity and creates an apparent slow-down in time.
+
+You are a test-subject. If you're able to clear specially designed obstacle courses in minimum time, you'll be made a full-time Aurora-9 pilot."
+align = 3
+autowrap = true
+
+[node name="ShowControls" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 452.0
+margin_right = 826.0
+margin_bottom = 480.0
+text = "Show me the controls"
+destination = ExtResource( 1 )
