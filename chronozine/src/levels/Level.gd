@@ -44,10 +44,12 @@ func _on_Goal_body_entered(body: Node) -> void:
 
 func _on_Player_started_slo_mo() -> void:
 	Engine.time_scale = SLO_MO
+	MusicManager.decrease_game_music_volume()
 
 
 func _on_Player_stopped_slo_mo() -> void:
 	Engine.time_scale = 1.0
+	MusicManager.increase_game_music_volume()
 
 
 func _on_Player_died() -> void:
