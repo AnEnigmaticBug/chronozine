@@ -83,7 +83,9 @@ _global_script_class_icons={
 config/name="Chronozine"
 config/description="Weave around lasers in slo-mo as you race to clear levels in minimum time"
 run/main_scene="res://src/gui/screens/home/Home.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/icons/icon.png"
+config/macos_native_icon="res://assets/icons/icon.icns"
+config/windows_native_icon="res://assets/icons/icon.ico"
 
 [autoload]
 
